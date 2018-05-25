@@ -76,9 +76,9 @@ def simulated_annealing(min_values = [-5,-5], max_values = [5,5], mu = 0, sigma 
                 p = np.exp(-delta/Temperature)
             
             if (fx_new < fx_old):
-                guess = new_guess
+                guess = new_guess.copy(deep = True)
             elif (delta < 0 or r <= p):
-                guess = new_guess
+                guess = new_guess.copy(deep = True)
                 
             if (fx_new < fx_best):
                 fx_best = fx_new
