@@ -89,4 +89,4 @@ def target_function (variables_values = [0, 0]):
     func_value = 4*variables_values[0]**2 - 2.1*variables_values[0]**4 + (1/3)*variables_values[0]**6 + variables_values[0]*variables_values[1] - 4*variables_values[1]**2 + 4*variables_values[1]**4
     return func_value
 
-sa = simulated_annealing(min_values = [-5,-5], max_values = [5,5], mu = 0, sigma = 0.01, initial_temperature = 1.0, temperature_iterations = 100, final_temperature = 0.0001, alpha = 0.9)
+sa = simulated_annealing(min_values = [-5,-5], max_values = [5,5], mu = 0, sigma = 0.01, initial_temperature = 1.0, temperature_iterations = 1000, final_temperature = 0.0000001, alpha = 0.9)
