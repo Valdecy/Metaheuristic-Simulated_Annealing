@@ -60,7 +60,7 @@ def simulated_annealing(min_values = [-5,-5], max_values = [5,5], mu = 0, sigma 
     while (Temperature > final_temperature):
         
         for repeat in range(0, temperature_iterations):
-            print("Temperature = ", Temperature, " ; iteration = ", repeat, " ; f(x) = ", best.iloc[0,-1])
+            print("Temperature = ", Temperature, " ; iteration = ", repeat, " ; f(x) = ", best.iloc[-1])
             fx_old  =  guess.iloc[0,-1]
             
             epson     = epson_vector(guess, mu = mu, sigma = sigma)
@@ -76,7 +76,7 @@ def simulated_annealing(min_values = [-5,-5], max_values = [5,5], mu = 0, sigma 
                 
             if (fx_new < fx_best):
                 fx_best = fx_new
-                best    = guess.copy(deep = True)
+                best    = guess.iloc[guess['f(x)'].idxmin(),:].copy(deep = True)
         Temperature = alpha*Temperature
         
     print(best)    
