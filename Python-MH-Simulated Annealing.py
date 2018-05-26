@@ -67,7 +67,7 @@ def simulated_annealing(min_values = [-5,-5], max_values = [5,5], mu = 0, sigma 
             new_guess = update_solution(guess, epson, min_values = min_values, max_values = max_values)
             fx_new    = new_guess.iloc[0,-1]
             
-            delta = (fx_new - fx_old)/fx_old
+            delta = (fx_new - fx_old)
             r = int.from_bytes(os.urandom(8), byteorder = "big") / ((1 << 64) - 1)
             p = np.exp(-delta/Temperature)
             
