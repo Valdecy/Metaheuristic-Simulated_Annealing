@@ -28,7 +28,7 @@ def initial_guess(min_values = [-5,-5], max_values = [5,5]):
     return guess
 
 # Function: Epson Vector
-def epson_vector(guess, mu = 0, sigma = 0.01):
+def epson_vector(guess, mu = 0, sigma = 1):
     epson = pd.DataFrame(np.zeros((1, guess.shape[1]-1)))
     for j in range(0, guess.shape[1]-1):
         epson.iloc[0,j] = float(np.random.normal(mu, sigma, 1))
@@ -48,7 +48,7 @@ def update_solution(guess, epson, min_values = [-5,-5], max_values = [5,5]):
     return updated_solution
 
 # SA Function
-def simulated_annealing(min_values = [-5,-5], max_values = [5,5], mu = 0, sigma = 0.01, initial_temperature = 1.0, temperature_iterations = 1000, final_temperature = 0.0001, alpha = 0.9):    
+def simulated_annealing(min_values = [-5,-5], max_values = [5,5], mu = 0, sigma = 1, initial_temperature = 1.0, temperature_iterations = 1000, final_temperature = 0.0001, alpha = 0.9):    
     guess = initial_guess(min_values = min_values, max_values = max_values)
     epson = epson_vector(guess, mu = mu, sigma = sigma)
     best  = guess.copy(deep = True)
