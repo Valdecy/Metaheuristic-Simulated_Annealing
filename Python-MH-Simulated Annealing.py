@@ -53,7 +53,7 @@ def simulated_annealing(min_values = [-5,-5], max_values = [5,5], mu = 0, sigma 
     epson = epson_vector(guess, mu = mu, sigma = sigma)
     best  = guess.copy(deep = True)
 
-    fx_best =  update_solution(guess, epson, min_values = min_values, max_values = max_values).iloc[0,-1]
+    fx_best = guess.iloc[0,-1]
     
     Temperature = float(initial_temperature)
     
@@ -75,9 +75,7 @@ def simulated_annealing(min_values = [-5,-5], max_values = [5,5], mu = 0, sigma 
             else:
                 p = np.exp(-delta/Temperature)
             
-            if (fx_new < fx_old):
-                guess = new_guess.copy(deep = True)
-            elif (delta < 0 or r <= p):
+            if (delta < 0 or r <= p):
                 guess = new_guess.copy(deep = True)
                 
             if (fx_new < fx_best):
