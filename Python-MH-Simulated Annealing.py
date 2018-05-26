@@ -63,17 +63,13 @@ def simulated_annealing(min_values = [-5,-5], max_values = [5,5], mu = 0, sigma 
             print("Temperature = ", Temperature, " ; iteration = ", repeat, " ; f(x) = ", best.iloc[0,-1])
             fx_old  =  guess.iloc[0,-1]
             
-            epson     = epson_vector(guess)
+            epson     = epson_vector(guess, mu = mu, sigma = sigma)
             new_guess = update_solution(guess, epson, min_values = min_values, max_values = max_values)
             fx_new    = new_guess.iloc[0,-1]
             
             delta = (fx_new - fx_old)/fx_old
             r = int.from_bytes(os.urandom(8), byteorder = "big") / ((1 << 64) - 1)
-            
-            if (delta < 0):
-                p = 1
-            else:
-                p = np.exp(-delta/Temperature)
+            p = np.exp(-delta/Temperature)
             
             if (delta < 0 or r <= p):
                 guess = new_guess.copy(deep = True)
