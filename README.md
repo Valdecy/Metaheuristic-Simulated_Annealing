@@ -8,9 +8,9 @@ Simulated Annealing to Minimize Functions with Continuous Variables. The functio
 
 * target_function = Function to be minimized.
 
-* mu = Mean (of a normal distribution) used generate a random number. The Default Value is 0.
+* mu = Mean (of a normal distribution) used to generate a random number. The Default Value is 0.
 
-* sigma = Standard Deviation (of a normal distribution) used generate a random number. The Default Value is 1.
+* sigma = Standard Deviation (of a normal distribution) used to generate a random number. The Default Value is 1.
 
 * initial_temperature = Value to start the simulated annealing. The Default Value is 1.
 
